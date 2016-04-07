@@ -1,0 +1,55 @@
+body{
+    text-align: justify;
+   padding-bottom:150px;
+ 
+}
+.titulo{
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.subtitulo{
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.figura{
+    text-align: center;
+    font-size: 15px;
+}
+.teoria{
+    font-size: 14px;
+    padding-left: 200px;
+    width: 90%;
+    line-height: 170%;
+}
+
+.inicioCapitulo{
+    text-align: center;
+    position: relative;
+    margin-bottom: 70px;
+}
+.inicioCapitulo img{
+    width: 90%;
+    height: auto;
+    
+}
+.titulo{
+  
+}
+.inicioCapitulo h1{
+    position:absolute;
+    top: 80%;
+    left:100px;
+    color: aliceblue
+}
+.ejerSuma{
+
+ display: inline-block;
+ margin:50px;
+
+}
+#siguiente{
+
+	display:none;
+}

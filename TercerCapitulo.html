@@ -1,0 +1,284 @@
+ <!DOCTYPE html>
+ <head>
+	<meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Matematicas,Control y Comunicación</title>
+	<script src="frontEnd/js/jsxgraphcore.js"></script>
+	<link rel="stylesheet" href="frontEnd/css/jsxgraph.css">
+	<link rel="stylesheet" href="frontEnd/css/estilos.css">
+    <script src="bower_components/MathJax/MathJax.js?config=AM_HTMLorMML"></script>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class = "inicioCapitulo">
+    <img src="imagenes/img1.jpg" alt="">  
+    <div class ="titulo"><h1>1. Integral de una función compleja</h1>
+    </div>  
+	</div>
+	
+	<div class="teoria">
+ <div class = titulo><span style="color:orange;">3.1</span> <strong>Integrales definidas en un intervalo [a,b] de números reales</strong></div>
+
+   <br>
+	Sea `f : [a,b] -> CC` una función compleja tal que `f (x) = u(x)+iv(x)` para `a<= x <=b`, entonces:
+  <br> <br>
+   `int_a^b f(x)dx=int_a^b u(x)dx+iint_a^b v(x)dx`
+   <br><br>
+  Ambas integrales a la derecha de la ecuación son integrales de Riemman, de funciones de valor real en [a,b].
+  <br><br>
+	<strong> Ejemplo</strong>
+	<br><br>
+	`f(t)=5t-it^2` <br>`int_0^1 f(t)dt=int_0^1 5t dt - int_0^1 t^2 dt =5/2 -i/3`<br>
+
+<div class ="titulo"> <span style="color:orange;">3.1.1</span> <strong>Curvas en el plano</strong></div>
+	
+	<br> Una curva en el plano complejo es una función `Gamma:[a,b]-> CC`, definida en un intervalo real
+[a,b] y que toma valores complejos. Para cada número t en [a,b],`Gamma(t)`es un número complejo, o
+un punto en el plano. El lugar geométrico de tales puntos es la gráfica de la curva.`Gamma` tiene una
+orientación dada por la dirección en la cual un punto `Gamma(t)`se mueve a lo largo de la grafica a medida
+que t aumenta de a hasta b, de esta manera `Gamma(a)`se puede llamar el punto inicial de la curva y `Gamma(b)` el punto final.
+<br> <br> 
+si `Gamma(t)=x(t)+iy(t)`,entones la gráfica de `Gamma` es el lugar geométrico de los puntos `(x(t),y(t))` para `a<= x <=b`.
+El punto inicial de `Gamma` es `x(a),y(a)`y el punto final es `x(b),y(b)` y `x(t),y(t)` se
+mueve desde el punto inicial al punto final a medida que t varía de a hasta b.
+<br> <br>
+<strong> Curva simple </strong> 
+<br>
+Una curva `Gamma` es simple si `Gamma(t1)!= Gamma(t2)` para `t1!=t2`, lo cual significa que el mismo punto nunca
+se repite.Se hace una excepción a esto para curvas cerradas, las cuales requieren que `Gamma(a)=Gamma(a)`,si este es el único punto
+ para el cual se cumple que  `Gamma(t1)= Gamma(t2)`con `t1!=t2`, entonces `Gamma` es una <i> curva cerrada simple</i>.
+<br> <br>
+<strong> Curva suave </strong> 
+<br> Una curva `Gamma:[a,b]-> CC` es <i>continua</i> si cada una de sus componentes es continua en [a,b]. Si `x(t)e y(t)` son diferenciables 
+en [a,b] entonces `Gamma` es una curva diferenciable.Si `x'(t)` e `y'(t)` son continuas, y no se anulan ambas para el mismo valor de t, llamamos a 
+`Gamma` una curva suave.
+
+<div class ="titulo"> <span style="color:orange;">3.2</span> <strong>Integrales definidas sobre una curva suave</strong></div>
+
+<br> Sea f una función compleja, sea `Gamma:[a,b]-> CC` una curva suave en el plano, supongase que f
+es continua en todos los puntos de `Gamma`, entonces la integral de f sobre `Gamma` define de la siguiente
+manera:
+<br> <br>
+   `int_Gamma f(z)dz=int_a^b f(Gamma(t))Gamma'(t)dt`
+<br> <br> para `a<= x <=b`. Puesto que `z=Gamma(t)` en la curva, esta integral se suele escribir de la siguiente
+manera:
+<br> <br>
+   `int_Gamma f(z)dz=int_a^b f(z(t))z'(t)dt`
+<br> <br> para `a<= x <=b`.
+<br><br>
+	<strong> Ejemplo</strong>
+	<br><br>
+	`int_Gamma`<span style="text-decoration:overline;">z</span>`dz`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Gamma=e^(it)`
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`0<= t <=pi/2` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`z(t)=e^(it)`
+	<br><br>
+	`z'(t)=ie^(it)dt`
+	<br><br>
+	`f(z(t))=f(e^(it))=e^(-it)`
+	<br><br>
+	`int_Gamma f(z)dz= int_0^(pi/2) e^(-it)ie^(it)dt=int_0^(pi/2)dt=i pi/2`
+	
+<div class ="titulo"> <span style="color:orange;">3.3</span> <strong>Propiedades de las integrales complejas</strong></div>
+
+<br> Se puede pensar en la integral de una función compleja sobre una curva como la suma de las
+integrales de línea de funciones de dos variables reales sobre la curva. Sea `f(z)=u(x,y)+iv(x,y)` y sobre la curva `Gamma`, sea `z(t)=x(t)+iy(t)` 
+para `a<= x <=b`, entonces: 
+<br><br>
+`f(z(t))=u(x(t),y(t))+iv(x(t),y(t))`
+<br><br> y
+<br><br> `z'(t)=x'(t)+iy'(t)` <br><br> Por lo tanto
+<br><br> `f(z(t))z'(t)=[u(x(t),y(t))+iv(x(t),y(t))]`= `u(x(t),y(t))x'(t)-v(x(t),y(t))y'(t)+i[v(x(t),y(t))x'(t)+u(x(t),y(t))y'(t)]`
+<br><br> Entonces
+<br><br> `int_Gamma f(z)dz= int_Gamma udx-vdy+iint_Gamma vdx+udy`
+<br><br> `int_Gamma (alpha f(z)+beta g(z))= alpha int_Gamma f(z)dz+beta int_Gamma g(z)dz`
+<br><br> `int_Gamma sum_(j=1)^n alpha `<sub>j</sub> `f`<sub>j</sub> `(z)dz=``sum_(j=1)^n alpha `<sub>j</sub>` int_Gamma f`<sub>j</sub>`(z)dz`
+<br><br> 
+<ul type = disk >
+<li> `int_Gamma K f(z)dz= K int_Gammaf(z)dz ` con K una constante real o compleja
+<li> `int_a^b f(z)dz= - int_b^a f(z)dz`
+<li> `int_a^b f(z)dz= int_a^m f(z)dz + int_m^b f(z)dz`
+</ul>
+<br><br> 
+sea `Gamma: [a,b] -> CC` una curva suave, la orientación de esta curva se puede invertir definiendo una
+nueva curva de la siguiente manera: `Gamma`<sub>2</sub>`(t)=(a+b-t)`para `a<= t <=b`. `Gamma`<sub>2</sub>
+tiene la misma gráfica que `Gamma`, sin embargo `Gamma`<sub>2</sub>`(a)=Gamma`(b) y 
+`Gamma`<sub>2</sub>`(b)=Gamma`(a) , de este modo `Gamma`<sub>2</sub> comienza donde `Gamma` termina, y `Gamma`<sub>2</sub>
+termina donde `Gamma` comienza, el hecho de cambiar la orientación invierte el signo de la integral.
+
+<div class ="titulo"> <span style="color:orange;">3.5</span> <strong>Teorema fundamental del cálculo</strong></div>
+<br>Sea f continua en un conjunto abierto G, y suponga que `f'(z)=f(z)` para z en G. Sea `Gamma: [a,b] -> G` una curva suave en G, entonces:
+<br> `int_a^b f(z)dz= F(Gamma(b))-F(Gamma(a))`
+<br><br>
+	<strong> Ejemplo</strong>
+	<br><br>
+	`int_0^(1+i) z^2dz= 1/3 z^3|_0^(1+i)=1/3(1+i)^3=-2/3+i2/3`
+	
+<div class ="titulo"> <span style="color:orange;">3.5</span> <strong>Integrales de series de funciones</strong></div>
+<br> Se buscan condiciones para las cuales se cumpla que
+<br><br> `int_Gamma(sum_(n=1)^oo fn(z)dz)=sum_(n=1)^oo int_Gamma fn(z)dz`
+<br><br> si se puede acotar cada fn(z) para z en la curva, por una constante positiva M<sub>n</sub>
+tal que `sum_(n=1)^oo `M<sub>n</sub> sea convergente, entonces se puede intercambiar la suma y la integral, e integrar las
+series término a término.
+
+<div class ="titulo"> <span style="color:orange;">3.6</span> <strong>Teorema de Cauchy para integrales</strong></div>
+<br>
+La integral de linea de una función f (z) generalmente no depende simplemente de los puntos
+finales de la trayectoria sobre la que se evalua, mas si depende de la trayectoria misma. Esta
+dependencia puede complicar la busqueda de solución a una integral, sin embargo bajo condiciones
+especificas la trayectoria pierde protagonismo.
+<br><br>
+	<strong> Conjunto Abierto</strong>
+	<br><br>
+Un conjunto `D` Se dice que es abierto si ningun punto de la frontera pertenece a `D`. 
+<br>
+sea K el disco abierto `|z-a|< r`. Todo punto de K es un punto interior ya que alrededor de
+cualquier punto en K podemos dibujar un disco de radio lo suficientemente pequeño que contenga
+sólo puntos en K. Así K es un conjunto abierto. 
+
+<br><br>
+	<strong> Conjunto Cerrado</strong>
+	<br><br>
+	Un conjunto `D` Se dice que es cerrado todos los puntos de la frontera pertenecen a `D`.
+	
+	<br><br>
+	<strong> Conjunto Conexo</strong>
+	<br><br>
+	`D in CC` es un conjunto conexo si y solo si `AA`<sub>z</sub>,`w in D` el segmento <span style="text-decoration:overline;">zw</span> esta contenido en `D`.
+	<br> <img src="imagenes/Cap3.1.png" alt=""> 
+	<br>Figure 3.1: Conjunto conexo y no conexo
+	
+	<br><br>
+	<strong> Trayectoria simple</strong>
+	<br><br>
+	sea `Gamma in CC` una trayectoria, se dice que es simple si y solo si :
+	<br><br>
+	`Gamma(t1)!=Gamma (t2)` entonces `t1 != t2`
+	<br> <img src="imagenes/Cap3.2.png" alt=""> 
+	<br>Figure 3.2: Trayectoria simple y no simple
+	
+	
+	<br><br>
+	<strong> Trayectoria cerrada</strong>
+	<br><br>
+	sea `Gamma in CC` una trayectoria, se dice que es cerrada si y solo si su punto inicial t<sub>i</sub> y su punto final
+	<sub>f</sub> son el mismo, esto es:
+	<br><br> `Gamma``(t`<sub>i</sub>)=`Gamma``(t`<sub>f</sub>) entonces `t`<sub>i</sub>`=t`<sub>f</sub>
+	
+	<br><br>
+	<strong> Trayectoria cerrada simple</strong>
+	<br><br>
+	Es una trayectoria cerrada que no se intersecta o toca consigo misma.
+	<br> <img src="imagenes/Cap3.3.png" alt=""> 
+	<br>Figure 3.3: Trayectoria cerrada simple y no simple
+	
+	<br><br>
+	<strong> Dominio simplemente conexo</strong>
+	<br><br> 
+	`D` es un dominio simplemente conexo en un plano complejo tal que toda trayectoria cerrada
+	simple en `D` encierra unicamente puntos contenidos en `D`.
+	<br> <img src="imagenes/Cap3.4.png" alt=""> 
+	<br>Figure 3.4: Dominio simplemente conexo y doblemente conexo
+	
+<div class ="titulo"> <span style="color:orange;">3.6.1</span> <strong>Teorema de la curva de Jordan</strong></div>
+<br>
+Si `J` es una curva de Jordan, entonces `RR^2-J`divide el espacio en dos componentes conexas,
+una region interior acotada y una no acotada o exterior , ambas regiones teniendo como borde a `J`.
+	<br> <img src="imagenes/Cap3.5.png" alt=""> 
+	<br>Figure 3.5: Curva de Jordan
+	
+<div class ="titulo"> <span style="color:orange;">3.6.2</span> <strong>Teorema de cauchy para integrales</strong></div>
+<br>
+sea `W=f(z)` una función analitica en un dominio simplemente conexo `D`y `C` es una trayectoria
+cerrada simple en `D` entonces
+<br><br>
+`oint_C f(z)dz=0`
+<br> <br> <img src="imagenes/Capitulo3/6.png" alt=""> 
+	<br>Figure 3.6: Teorema de cauchy para integrales
+
+	<br><br>
+	<strong> Ejemplo</strong>
+	<br><br> 
+	Sea `C` la trayectoria definida por el circulo de radio 10 y centro en 3, `|z-3|=10` y
+	<br><br> `f(z)=z/(z^2+9)`
+	<br><br> Se puede afirmar que `f(z)` es indeterminado para `z = 3` y `z = -3`, y estos dos valores se
+encuentran encerrados por la trayectoria `C` por tanto la función no es analitica en el circulo abierto
+de radio 10 y centro en 3 con lo que se concluye que el resultado de la integral sobre C de la función
+`f(z)` es diferente de cero.
+	<br><br> `oint_C z/(z^2+9) dz != 0`
+	
+<div class ="titulo"> <span style="color:orange;">3.6.3</span> <strong>Independencia de la trayectoria</strong></div>
+<br>
+Si `f(z)` es analitica en un dominio simplemente conexo `D`, entonces la integral de `f(z)` es
+independiente de la trayectoria en `D`:
+	<br><br>
+	<strong> Ejemplo</strong>
+	<br><br> 
+	Tenemos una función `f(z)=z^3` y dos trayectorias `C`<sub>1</sub>`:Gamma`<sub>1</sub>`(t)=t+it` y 
+	`C`<sub>2</sub>`:Gamma`<sub>2</sub>`(t)=t+it^2` con `0<= t <=1` ambas con punto inicial `t`<sub>i</sub>`=0`
+	`t`<sub>f</sub>`=1` se comprobara que independiente de la
+	trayectoria tendran el mismo resultado.
+	<br><br> `int_C`<sub>1</sub>` f(z)dz = int_0^1 (t+it)^3(1+i)dt=int_0^1 -4t^3 dt = [-t^4]_0^1=-1`
+	<br><br> Ahora se integrara sobre `C`<sub>2</sub> la misma función:
+	<br><br> `int_C `<sub>2</sub>`f(z)dz = int_0^1 (t+it^2)^3(1+i2t)dt=int_0^1 t^3+5it^4-9t^5-7it^6+2t^7 dt`
+	<br><br>  `[t^8/4-it^7-3t^6/2+it^5+t^4/4]_0^1=1/4+i-3/2+i-1/4=-1`
+	
+<div class ="titulo"> <span style="color:orange;">3.6.4</span> <strong>Formula integral de Cauchy</strong></div>
+Sea `f` diferenciable en un conjunto abierto `D`. Sea `Gamma` una trayectoria cerrada en el conjunto `D`
+que encierra sólo puntos de `D`. Entonces, para cualquier punto `z`<sub>0</sub> encerrado por la trayectoria `Gamma` se
+tiene:
+<br><br> `f(z`<sub>0</sub>)`=1/(2pi i)oint_Gamma f(z)/(z-z0)dz`
+<br> <br> Reescribiendo lo anterior, multiplicando ambos lados por `2pi i` 
+<br><br> `oint_Gamma f(z)/(z-z0)dz= f(z`<sub>0</sub>)`(2pi i)`
+<br><br> De la ecuación anterior podemos concluir que la evaluación de la integral de la derecha sobre
+una trayectoria cualquiera es un múltiplo de `(2pi i)`
+<br><br>  En general podemos considerar los siguientes casos para el teorema:
+<br><br> 
+<ol>
+<li> `oint_Gamma dz/(z-z0) =2pi i `
+	<br> si `Gamma` incluye a `z`<sub>0</sub>
+	<br> 0 si `Gamma` no incluye a `z`<sub>0</sub>
+	<br> <br>
+<li> `oint_Gamma f(z) dz/(z-z0) =2pi i f(z`<sub>0</sub>)
+	<br> si `Gamma` incluye a `z`<sub>0</sub>
+	<br> 0 si `Gamma` no incluye a `z`<sub>0</sub>
+	<br> <br>
+<li> `oint_Gamma f(z) dz/(z-z0)^(n+1) =(2pi i f^((n))(z0))/(n!)`
+	<br> si `Gamma` incluye a `z`<sub>0</sub>
+	<br> 0 si `Gamma` no incluye a `z`<sub>0</sub>
+	<br> <br>
+</ol>
+
+<div class ="titulo"> <span style="color:orange;">3.7</span> <strong>Teorema del residuo</strong></div>
+si `f(z)` tiene un polo simple de grado 1 en `z`<sub>0</sub>, entonces
+<br> <br> `Res(f,z0)=lim_(z->z0) f(z)(z0)`
+<br> <br> Si `f(z)` tiene un polo de grado `M` en  `z`<sub>0</sub> entonces:
+<br> <br> `Res(f,z0)=1/((M-1)!)lim_(z->z0) d^(M-1)/(dz^(m-1))[f(z)(z-z0)^M]`
+<br><br>
+	<strong> Ejemplo</strong>
+	<br><br> 
+	Sea `f(z) = sen(z)/z`, como es evidente tiene un polo simple en 0, y entonces se le calcula el
+	residuo así
+	<br><br>`Res(f,z0)=lim_(z->0) (sen(z))/z (z-0)=lim_(z->0) (sen(z))/z=lim_(z->0) sen(z)=0`
+	<br><br> Por tanto para cualquier integral de la siguiente forma el resultado dará 0
+	<br><br> `oint_C (sen(z))/z dz  2pi i  Res(f,0)=0 `
+	
+	<br><br>
+	<strong> Ejemplo</strong>
+	<br><br> 
+	Evaluar la siguiente integral donde `Gamma` es la circunferencia unitaria orientada en sentido contrario
+	a las manecillas del reloj
+	<br><br> `oint_Gamma (z^2 sen(z))/(4z^2-1) dz  `
+	<br><br> `oint_Gamma (z^2 sen(z))/(4z^2-1) dz = 1/4 oint_Gamma (z^2 sen(z))/(z^2-1/4) dz=1/4 oint_Gamma (z^2 sen(z))/((z-(1/2))(z+(1/2))) dz`
+	<br><br> Singularidades: `z = 1/2, z = -1/2 &nbsp;&nbsp;&nbsp; M = 1`
+	<br><br> `Res(f,z0)=i/((M-1)!)lim_(z->z0) d^(M-1)/(dz^(m-1))[f(z)(z-z0)^M]`
+	<br><br> `Res(f,1/2)=lim_(z->1/2) [(z^2 sen(z))/((z-(1/2))(z+(1/2))) (z-1/2)]=1/4 sen(1/2)`
+	<br><br> `Res(f,-1/2)=lim_(z->1/2) [(z^2 sen(z))/((z-(1/2))(z+(1/2))) (z+1/2)]=-1/4 sen(-1/2)`
+	<br><br>  Entonces
+	<br><br> `1/4 oint_Gamma (z^2 sen(z))/(z^2-1/4) dz=1/4(2pi i(Res(f,1/2)+Res(f,-1/2)))=(pi i)/2 (1/4 sen(1/2)-1/4 sen(-1/2))=(pi i)/2 (1/2 sen (1/2)) `
+	<br><br> Por lo tanto
+	<br><br> `oint_Gamma (z^2 sen(z))/(4z^2-1) dz =(pi i)/4 (sen (1/2))  `
+	
+</div>
+	
+</body>
+
